@@ -1,17 +1,24 @@
 import React from 'react';
 import './index.scss';
-import CustomButton from '../UI/CustomButton/CustomButton'
+import ClickPlace from '../UI/ClickPlace/ClickPlace';
 
-const FieldGame = ({name, counterClick}) => {
+const FieldGame = ({rightAnswersCounter}) => {
+
+
     return (
         <>
-        <div className='title'>
-            {name}
-        </div>
-
-        <div onClick={() => counterClick(1)}>нажми на меня</div>
-
-        <CustomButton/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter}/>
+            {/* <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/>
+            <ClickPlace/> */}
         </>
     );
 };
