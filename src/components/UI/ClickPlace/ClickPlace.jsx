@@ -1,14 +1,13 @@
 import React from 'react';
 import style from './ClickPlace.module.scss'
 
-const ClickPlace = ({rightAnswersCounter, wrongAnswersCounter}) => {
+const ClickPlace = ({rightAnswersCounter, el}) => {
     return (
         <div onClick={() => {
             rightAnswersCounter(1)
-            wrongAnswersCounter(1)
-            }} 
+        }} 
             className={style.game__item}>
-            <p></p>
+            <p>{el}</p>
         </div>
     );
 };

@@ -11,11 +11,12 @@ function App() {
 
   const rightAnswersCounter = (click) => {
     setRight(Number(right) + Number(click));
+    setWrong(Number(wrong) + Number(click))
   };
 
-  const wrongAnswersCounter = (click) => {
-    setWrong(Number(wrong) + Number(click))
-  }
+  // const wrongAnswersCounter = (click) => {
+  //   setWrong(Number(wrong) + Number(click))
+  // }
  
 
 
@@ -25,7 +26,7 @@ function App() {
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+          <FieldGame rightAnswersCounter={rightAnswersCounter}/>
         </div>
         <CounterRightAnswers right={right}/>
         <CounterWrongAnswers wrong={wrong}/>
