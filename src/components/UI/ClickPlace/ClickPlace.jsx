@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './ClickPlace.module.scss'
 
-const ClickPlace = ({rightAnswersCounter, el}) => {
+const ClickPlace = ({el}) => {
+    const [right, setRight] = useState(0)
+    const [wrong, setWrong] = useState(0)
+  
+    const AnswersCounter = (click) => {
+      setRight(Number(right) + Number(click));
+      setWrong(Number(wrong) + Number(click))
+    };
+    console.log(right)
+
     return (
-        <div onClick={() => {
-            rightAnswersCounter(1)
-        }} 
-            className={style.game__item}>
+        <div onClick={() => {AnswersCounter(1)}} className={style.game__item}>
             <p>{el}</p>
         </div>
     );
