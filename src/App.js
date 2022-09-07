@@ -3,13 +3,21 @@ import "./assets/style/style.scss";
 
 import FieldGame from "./components/FieldGame/FieldGame";
 import CounterRightAnswers from "./components/UI/CounterRightAnswers/CounterRightAnswers";
+import CounterWrongAnswers from "./components/UI/CounterWrongAnswers/CounterWrongAnswers";
 
 function App() {
-  const [value, setValue] = useState(0)
-    const rightAnswersCounter = (click) => {
-      console.log('dsdsd')
-        setValue(Number(value) + Number(click) )
-    }
+  const [right, setRight] = useState(0)
+  const [wrong, setWrong] = useState(0)
+
+  const rightAnswersCounter = (click) => {
+    setRight(Number(right) + Number(click));
+  };
+
+  const wrongAnswersCounter = (click) => {
+    setWrong(Number(wrong) + Number(click))
+  }
+ 
+
 
   return (  
     <div className="App">
@@ -17,12 +25,11 @@ function App() {
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame rightAnswersCounter={rightAnswersCounter}/>
+          <FieldGame rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
         </div>
-        <CounterRightAnswers name={value}/>
-        <button onClick={() => rightAnswersCounter(1)}></button>
+        <CounterRightAnswers right={right}/>
+        <CounterWrongAnswers wrong={wrong}/>
       </div>
-
     </div>
   );
 }

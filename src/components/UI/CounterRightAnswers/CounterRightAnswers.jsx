@@ -1,10 +1,10 @@
 import React from 'react';
 import './CounterRightAnswers.scss'
 
-const CounterRightAnswers = ({name}) => {
+const CounterRightAnswers = ({right}) => {
     return (
         <div>
-            <p>{name}</p>
+            <p className='counter__text'>Число правильных ответов: {right}</p>
         </div>
     );
 };

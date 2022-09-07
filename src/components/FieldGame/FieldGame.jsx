@@ -2,23 +2,21 @@ import React from 'react';
 import './index.scss';
 import ClickPlace from '../UI/ClickPlace/ClickPlace';
 
-const FieldGame = ({rightAnswersCounter}) => {
-
-
+const FieldGame = ({rightAnswersCounter}, {wrongAnswersCounter}) => {
     return (
         <>
-            <ClickPlace rightAnswersCounter={rightAnswersCounter}/>
-            {/* <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/>
-            <ClickPlace/> */}
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
+            <ClickPlace rightAnswersCounter={rightAnswersCounter} wrongAnswersCounter={wrongAnswersCounter}/>
         </>
     );
 };
