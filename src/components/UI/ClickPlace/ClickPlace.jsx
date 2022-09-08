@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './ClickPlace.module.scss'
 
-const ClickPlace = ({el, rightAnswersCounter}) => {
-    const test = (click) => {
-        console.log(click.currentTarget.className)        
+const ClickPlace = ({el}) => {
+    const [choiceArray, setChoiceArray] = useState([])
+    
+    const clickHistory = (click) => {
+        click.currentTarget.classList.toggle('finally')
+        setChoiceArray([...choiceArray, Number(click.currentTarget.innerHTML)])
+        console.log(choiceArray)
     }
+
     return (
-        <div onClick={() => {rightAnswersCounter(1)}} className={style.game__item}>
-            <p className='test' onClick={test}>{el}</p>
+        <div onClick={clickHistory} className={style.game__item}>
+            {el}
         </div>
     );
 };

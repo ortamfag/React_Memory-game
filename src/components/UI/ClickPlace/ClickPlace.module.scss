@@ -6,8 +6,6 @@
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
-
-    & p {
-        user-select: none;
-    }
+    user-select: none;
+    padding: 10px
 }

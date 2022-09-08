@@ -18,21 +18,13 @@ const FieldGame = () => {
 
     const [value, setValue] = useState(0)
 
-    let choiceHistory = []
-
     const rightAnswersCounter = (click) => {
-        setValue(Number(value) + Number(click))
-        console.log(click.currentTarget)
-        // if (click.currentTarget.classList.contains('game__item')){
-        //     console.log('есть')
-        // } else console.log('нет')
-        
+        setValue(Number(value) + Number(click))        
     }
 
-    useEffect(() => {   
-        // console.log('test')
-        
-    })
+    // useEffect(() => {   
+    //     console.log('test')
+    // })
     
     return (
         <>
