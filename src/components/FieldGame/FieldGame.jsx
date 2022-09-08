@@ -17,24 +17,30 @@ const FieldGame = () => {
     const [numberState, setNumberState] = useState(setNumber)
 
     const [value, setValue] = useState(0)
-    const rightAnswersCounter = (click) => {
-        setValue(Number(value) + Number(click) )
-    }
 
     let choiceHistory = []
 
-    // useEffect(() => {   
-    //     console.log(event)
-    // })
+    const rightAnswersCounter = (click) => {
+        setValue(Number(value) + Number(click))
+        console.log(click.currentTarget)
+        // if (click.currentTarget.classList.contains('game__item')){
+        //     console.log('есть')
+        // } else console.log('нет')
+        
+    }
+
+    useEffect(() => {   
+        // console.log('test')
+        
+    })
     
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} rightAnswersCounter={rightAnswersCounter} choiceHistory={choiceHistory}/>    
+                <ClickPlace el={el} key={i} rightAnswersCounter={rightAnswersCounter}/>    
             )}
         </>
     );
 };
 
 export default FieldGame;
-
