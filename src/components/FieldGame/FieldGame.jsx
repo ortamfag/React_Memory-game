@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import ClickPlace from '../UI/ClickPlace/ClickPlace';
 
@@ -16,16 +16,21 @@ const FieldGame = () => {
 
     const [numberState, setNumberState] = useState(setNumber)
 
-    console.log(numberState)
-
-    function test() {
-        console.log('нажал')
+    const [value, setValue] = useState(0)
+    const rightAnswersCounter = (click) => {
+        setValue(Number(value) + Number(click) )
     }
+
+    let choiceHistory = []
+
+    // useEffect(() => {   
+    //     console.log(event)
+    // })
     
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} test={test}/>    
+                <ClickPlace el={el} key={i} rightAnswersCounter={rightAnswersCounter} choiceHistory={choiceHistory}/>    
             )}
         </>
     );

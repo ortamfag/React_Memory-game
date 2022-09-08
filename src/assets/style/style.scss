@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    user-select: none;
 }
 
 .game{
@@ -18,4 +19,8 @@ h1 {
     grid-template-columns: 25% 25% 25% 25%;
     width: 65%;
     position: relative;
+}
+
+.finally {
+    background-color: green
 }
