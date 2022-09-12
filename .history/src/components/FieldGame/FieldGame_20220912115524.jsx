@@ -23,6 +23,8 @@ const FieldGame = () => {
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')
         setChoiceArray([...choiceArray, click.currentTarget.innerHTML])
+
+        arr = document.querySelectorAll('.right')
     }
 
     useEffect(() => {
@@ -51,7 +53,7 @@ const FieldGame = () => {
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} clickHistory={clickHistory}/>    
+                <ClickPlace el={el} key={i}/>    
             )}
         </>
     );

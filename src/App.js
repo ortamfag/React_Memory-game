@@ -6,7 +6,6 @@ import CounterRightAnswers from "./components/UI/CounterRightAnswers/CounterRigh
 import CounterWrongAnswers from "./components/UI/CounterWrongAnswers/CounterWrongAnswers";
 
 function App() {
-
   return (  
     <div className="App">
       <h1>Memory-game</h1>

@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './ClickPlace.module.scss'
 
-const ClickPlace = ({el}) => {
-    const [choiceArray, setChoiceArray] = useState([])
-    
-    const clickHistory = (click) => {
-        click.currentTarget.classList.toggle('finally')
-        setChoiceArray([...choiceArray, Number(click.currentTarget.innerHTML)])
-        console.log(choiceArray)
-    }
+const ClickPlace = ({el, clickHistory}) => {
 
     return (
         <div onClick={clickHistory} className={style.game__item}>

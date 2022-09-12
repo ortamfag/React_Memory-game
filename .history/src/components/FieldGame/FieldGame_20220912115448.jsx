@@ -16,14 +16,16 @@ const FieldGame = () => {
 
     const [numberState] = useState(setNumber)
 
-    let [choiceArray, setChoiceArray] = useState([])
+    let [choiceArray] = useState([])
     
     // let [arr, setArr] = useState([])
     
-    const clickHistory = (click) => {
-        click.currentTarget.classList.toggle('finally')
-        setChoiceArray([...choiceArray, click.currentTarget.innerHTML])
-    }
+    // const clickHistory = (click) => {
+    //     click.currentTarget.classList.toggle('finally')
+    //     setChoiceArray([...choiceArray, click.currentTarget.innerHTML])
+
+    //     arr = document.querySelectorAll('.right')
+    // }
 
     useEffect(() => {
         console.log('test')
@@ -51,7 +53,7 @@ const FieldGame = () => {
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} clickHistory={clickHistory}/>    
+                <ClickPlace el={el} key={i}/>    
             )}
         </>
     );

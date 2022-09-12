@@ -51,7 +51,7 @@ const FieldGame = () => {
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} clickHistory={clickHistory}/>    
+                <ClickPlace el={el} key={i}/>    
             )}
         </>
     );
