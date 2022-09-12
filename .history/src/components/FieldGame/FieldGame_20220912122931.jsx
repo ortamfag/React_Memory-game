@@ -22,7 +22,7 @@ const FieldGame = () => {
         click.currentTarget.classList.toggle('finally')
         setChoiceArray([...choiceArray, click.currentTarget.innerHTML])
     }
-
+    let button = document.querySelector('.game__button')
     useEffect(() => {
         if (choiceArray.length === 2) {
             let rightNumberArr = document.querySelectorAll('.finally')
@@ -43,9 +43,9 @@ const FieldGame = () => {
                 choiceArray = []
             }
         }
-        
+        console.log
         if (document.querySelectorAll('.right').length === 2) {
-            document.querySelector("#reset").classList.add('active')
+            console.log(button)
         }
     })
     

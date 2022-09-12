@@ -43,9 +43,9 @@ const FieldGame = () => {
                 choiceArray = []
             }
         }
-        
+        let button = document.querySelector('.game__button')
         if (document.querySelectorAll('.right').length === 2) {
-            document.querySelector("#reset").classList.add('active')
+            console.log(button)
         }
     })
     

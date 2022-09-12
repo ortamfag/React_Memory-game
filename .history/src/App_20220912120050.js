@@ -7,7 +7,6 @@ import CounterWrongAnswers from "./components/UI/CounterWrongAnswers/CounterWron
 import ResetButton from "./components/UI/ResetButton/ResetButton";
 
 function App() {
-
   return (  
     <div className="App">
       <h1>Memory-game</h1>

@@ -43,9 +43,8 @@ const FieldGame = () => {
                 choiceArray = []
             }
         }
-        
         if (document.querySelectorAll('.right').length === 2) {
-            document.querySelector("#reset").classList.add('active')
+            console.log('test')
         }
     })
     

@@ -44,8 +44,10 @@ const FieldGame = () => {
             }
         }
         
+        let button = document.querySelector('.game__button')
+        console.log
         if (document.querySelectorAll('.right').length === 2) {
-            document.querySelector("#reset").classList.add('active')
+            console.log(button)
         }
     })
     

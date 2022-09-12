@@ -8,6 +8,7 @@ import ResetButton from "./components/UI/ResetButton/ResetButton";
 
 function App() {
 
+  console.log(button)
   return (  
     <div className="App">
       <h1>Memory-game</h1>

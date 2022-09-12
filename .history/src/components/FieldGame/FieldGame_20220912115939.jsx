@@ -24,6 +24,7 @@ const FieldGame = () => {
     }
 
     useEffect(() => {
+        console.log('test')
         if (choiceArray.length === 2) {
             let rightNumberArr = document.querySelectorAll('.finally')
             rightNumberArr = [...rightNumberArr]
@@ -42,10 +43,6 @@ const FieldGame = () => {
                 })
                 choiceArray = []
             }
-        }
-        
-        if (document.querySelectorAll('.right').length === 2) {
-            document.querySelector("#reset").classList.add('active')
         }
     })
     
