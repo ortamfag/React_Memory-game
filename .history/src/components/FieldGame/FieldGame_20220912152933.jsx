@@ -18,14 +18,16 @@ const FieldGame = ({value}) => {
 
     let [numberState, setNumberState] = useState(setNumber)
 
-    if (value === 1) {
-        let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
-            return - 1
-        })
+    if (value >= 1) {
+        // let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
+        //     return - 1
+        // })
 
-        // setValue(Number(value) + Number(1))
-        setNumberState(numberState = newSetNumber )
+        // setNumberState(numberState = newSetNumber )
+        // setValue(Number(value) - 1)
     }
+
+    console.log(value)
     
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')

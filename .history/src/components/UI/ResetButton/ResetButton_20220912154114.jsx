@@ -13,7 +13,7 @@ const ResetButton = ({value, counterClick}) => {
     //   }
 
     return (
-      <button id="reset" onClick={counterClick} className={style.game__button}>
+      <button id="reset" onClick={counterClick(test)} className={style.game__button}>
         {value}Играть снова?
       </button>
     );

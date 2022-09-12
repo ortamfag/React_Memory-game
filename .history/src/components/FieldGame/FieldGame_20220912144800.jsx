@@ -5,7 +5,11 @@ import ClickPlace from '../UI/ClickPlace/ClickPlace';
 const FieldGame = ({value}) => {
     let [choiceArray, setChoiceArray] = useState([])
 
-    let numberArr = new Set()
+
+    if (value > 0) {
+        let numberArr = new Set()
+    }
+
     const matrixLength = 12
   
     for (let i = 0; numberArr.size !== matrixLength / 2; i++) {
@@ -16,16 +20,7 @@ const FieldGame = ({value}) => {
         return - 1
     })
 
-    let [numberState, setNumberState] = useState(setNumber)
-
-    if (value === 1) {
-        let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
-            return - 1
-        })
-
-        // setValue(Number(value) + Number(1))
-        setNumberState(numberState = newSetNumber )
-    }
+    const [numberState] = useState(setNumber)
     
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')

@@ -18,6 +18,7 @@ const FieldGame = ({value}) => {
 
     let [numberState, setNumberState] = useState(setNumber)
 
+    console.log(value)
     if (value === 1) {
         let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
             return - 1

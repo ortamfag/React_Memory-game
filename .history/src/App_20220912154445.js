@@ -18,11 +18,9 @@ function App() {
             })
         }
     setValue(Number(value) + Number(1))
-
-    setTimeout(() => {
-      setValue(0)
-      console.log(value)
-    }, 1)
+    let timeout = setTimeout(() => {
+      setValue(Number(value) + Number(1))
+  }, 500);
   }
 
   return (  

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import ClickPlace from '../UI/ClickPlace/ClickPlace';
 
-const FieldGame = ({value}) => {
+const FieldGame = ({value, setValue}) => {
     let [choiceArray, setChoiceArray] = useState([])
 
     let numberArr = new Set()
@@ -18,14 +18,16 @@ const FieldGame = ({value}) => {
 
     let [numberState, setNumberState] = useState(setNumber)
 
-    if (value === 1) {
-        let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
-            return - 1
-        })
+    if (value >= 1) {
+        // let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
+        //     return - 1
+        // })
 
-        // setValue(Number(value) + Number(1))
-        setNumberState(numberState = newSetNumber )
+        // setNumberState(numberState = newSetNumber )
+        this.setValue(Number(value) - 1)
     }
+
+    console.log(value)
     
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')

@@ -8,32 +8,20 @@ import ResetButton from "./components/UI/ResetButton/ResetButton";
 
 function App() {
 
-  const [value, setValue] = useState(0)
-  const counterClick = () => {
-    let arrRightNum = document.querySelectorAll('.right')
-        if (arrRightNum.length >= 1) {
-            let resetArr = [...arrRightNum]
-            resetArr.forEach((item) => {
-                item.classList.remove('right', 'finally')
-            })
-        }
-    setValue(Number(value) + Number(1))
-
-    setTimeout(() => {
-      setValue(0)
-      console.log(value)
-    }, 1)
+  let [value, setValue] = useState(0)
+  const counterClick = (val) => {
+    setValue
   }
-
+  console.log(count)
   return (  
     <div className="App">
       <h1>Memory-game</h1>
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame value={value}/>
+          <FieldGame/>
         </div>
-        <ResetButton value = {value} counterClick={counterClick}/>
+        <ResetButton count = {count} setCount={setCount}/>
         <CounterRightAnswers/>
         <CounterWrongAnswers/>
       </div>

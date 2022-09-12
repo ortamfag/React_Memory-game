@@ -2,8 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './index.scss';
 import ClickPlace from '../UI/ClickPlace/ClickPlace';
 
-const FieldGame = ({value}) => {
-    let [choiceArray, setChoiceArray] = useState([])
+const FieldGame = () => {
+    function resetGame() {
+        let arrRightNum = document.querySelectorAll('.right')
+        if (arrRightNum >= 1) {
+            let resetArr = [...arrRightNum]
+        }
+
+        resetArr.forEach((item) => {
+            item.classList.remove('right', 'finally')
+        })
+    }
 
     let numberArr = new Set()
     const matrixLength = 12
@@ -16,16 +25,9 @@ const FieldGame = ({value}) => {
         return - 1
     })
 
-    let [numberState, setNumberState] = useState(setNumber)
+    const [numberState] = useState(setNumber)
 
-    if (value === 1) {
-        let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
-            return - 1
-        })
-
-        // setValue(Number(value) + Number(1))
-        setNumberState(numberState = newSetNumber )
-    }
+    let [choiceArray, setChoiceArray] = useState([])
     
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')
@@ -53,7 +55,7 @@ const FieldGame = ({value}) => {
             }
         }
         
-        if (document.querySelectorAll('.right').length === 2) {
+        if (document.querySelectorAll('.right').length === 12) {
             document.querySelector("#reset").classList.add('active')
         }
     })

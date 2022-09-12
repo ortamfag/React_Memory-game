@@ -9,7 +9,7 @@ import ResetButton from "./components/UI/ResetButton/ResetButton";
 function App() {
 
   const [value, setValue] = useState(0)
-  const counterClick = () => {
+  const counterClick = (callback) => {
     let arrRightNum = document.querySelectorAll('.right')
         if (arrRightNum.length >= 1) {
             let resetArr = [...arrRightNum]
@@ -18,13 +18,12 @@ function App() {
             })
         }
     setValue(Number(value) + Number(1))
-
-    setTimeout(() => {
-      setValue(0)
-      console.log(value)
-    }, 1)
+    callback()
   }
 
+  const test = () => {
+    console.log(test)
+  }
   return (  
     <div className="App">
       <h1>Memory-game</h1>

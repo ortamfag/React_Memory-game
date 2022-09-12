@@ -9,6 +9,7 @@ import ResetButton from "./components/UI/ResetButton/ResetButton";
 function App() {
 
   const [value, setValue] = useState(0)
+  let timeout
   const counterClick = () => {
     let arrRightNum = document.querySelectorAll('.right')
         if (arrRightNum.length >= 1) {
@@ -18,11 +19,9 @@ function App() {
             })
         }
     setValue(Number(value) + Number(1))
-
-    setTimeout(() => {
-      setValue(0)
-      console.log(value)
-    }, 1)
+    timeout = setTimeout(() => {
+      setValue(Number(value) + Number(1))
+  }, 500);
   }
 
   return (  

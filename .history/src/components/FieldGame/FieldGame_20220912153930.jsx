@@ -18,13 +18,14 @@ const FieldGame = ({value}) => {
 
     let [numberState, setNumberState] = useState(setNumber)
 
+    console.log(value)
     if (value === 1) {
         let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
             return - 1
         })
 
         // setValue(Number(value) + Number(1))
-        setNumberState(numberState = newSetNumber )
+        // setNumberState(numberState = newSetNumber )
     }
     
     const clickHistory = (click) => {

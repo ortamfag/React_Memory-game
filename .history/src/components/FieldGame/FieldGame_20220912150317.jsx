@@ -23,8 +23,8 @@ const FieldGame = ({value}) => {
             return - 1
         })
 
-        // setValue(Number(value) + Number(1))
         setNumberState(numberState = newSetNumber )
+        value = 0
     }
     
     const clickHistory = (click) => {

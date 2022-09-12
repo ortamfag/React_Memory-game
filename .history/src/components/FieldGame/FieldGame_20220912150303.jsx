@@ -23,9 +23,10 @@ const FieldGame = ({value}) => {
             return - 1
         })
 
-        // setValue(Number(value) + Number(1))
         setNumberState(numberState = newSetNumber )
+        value = 0
     }
+    console.log(value)
     
     const clickHistory = (click) => {
         click.currentTarget.classList.toggle('finally')

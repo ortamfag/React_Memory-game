@@ -17,21 +17,15 @@ function App() {
                 item.classList.remove('right', 'finally')
             })
         }
-    setValue(Number(value) + Number(1))
-
-    setTimeout(() => {
-      setValue(0)
-      console.log(value)
-    }, 1)
+    this.setValue(Number(value) + Number(1))
   }
-
   return (  
     <div className="App">
       <h1>Memory-game</h1>
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame value={value}/>
+          <FieldGame value={value} counterClick={this.counterClick}/>
         </div>
         <ResetButton value = {value} counterClick={counterClick}/>
         <CounterRightAnswers/>

@@ -21,8 +21,7 @@ function App() {
 
     setTimeout(() => {
       setValue(0)
-      console.log(value)
-    }, 1)
+    }, 3000)
   }
 
   return (  
