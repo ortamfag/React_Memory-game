@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './ClickPlace.module.scss'
 
-const ClickPlace = ({el, clickHistory}) => {
+const ClickPlace = ({el, newHistoryNumber}) => {
 
     return (
-        <div onClick={clickHistory} className={style.game__item}>
+        <div onClick={newHistoryNumber} className={style.game__item}>
             {el}
         </div>
     );

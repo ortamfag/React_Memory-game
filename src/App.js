@@ -5,19 +5,17 @@ import FieldGame from "./components/FieldGame/FieldGame";
 import CounterRightAnswers from "./components/UI/CounterRightAnswers/CounterRightAnswers";
 import CounterWrongAnswers from "./components/UI/CounterWrongAnswers/CounterWrongAnswers";
 import ResetButton from "./components/UI/ResetButton/ResetButton";
+import { connect } from 'react-redux'
 
 function App() {
-
-  const [value, setValue] = useState(0)
   const counterClick = () => {
     let arrRightNum = document.querySelectorAll('.right')
-        if (arrRightNum.length >= 1) {
+        if (arrRightNum.length >= 12) {
             let resetArr = [...arrRightNum]
             resetArr.forEach((item) => {
                 item.classList.remove('right', 'finally')
             })
         }
-    setValue(Number(value) + Number(1))
   }
 
   return (  
@@ -26,9 +24,9 @@ function App() {
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame value={value}/>
+          <FieldGame/>
         </div>
-        <ResetButton value = {value} counterClick={counterClick}/>
+        <ResetButton counterClick={counterClick}/>
         <CounterRightAnswers/>
         <CounterWrongAnswers/>
       </div>

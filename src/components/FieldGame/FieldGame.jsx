@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 import ClickPlace from '../UI/ClickPlace/ClickPlace';
+import { useDispatch, useSelector } from 'react-redux';
+import { newHistoryItem } from '../../action/newHistoryItem';
 
-const FieldGame = ({value}) => {
-    let [choiceArray, setChoiceArray] = useState([])
+const FieldGame = () => {
+
+    const stateHistoryItem = useSelector(state => state.setHistory.historyNumberArr);
+    const dispatch = useDispatch()
+
+    const newHistoryNumber = (click) => {
+        click.currentTarget.classList.toggle('finally')
+        dispatch(newHistoryItem([...stateHistoryItem, click.currentTarget.innerHTML]))
+    }
+
 
     let numberArr = new Set()
     const matrixLength = 12
@@ -16,42 +26,26 @@ const FieldGame = ({value}) => {
         return - 1
     })
 
-    let [numberState, setNumberState] = useState(setNumber)
-
-    // if (value === 1) {
-    //     let newSetNumber = [...numberArr].concat([...numberArr]).sort(() => {
-    //         return - 1
-    //     })
-    //     setNumberState(newSetNumber)
-    // }
+    let [numberState] = useState(setNumber)
 
     useEffect(() => {
-        console.log(value)
-    })
-    
-    const clickHistory = (click) => {
-        click.currentTarget.classList.toggle('finally')
-        setChoiceArray([...choiceArray, click.currentTarget.innerHTML])
-    }
-
-    useEffect(() => {
-        if (choiceArray.length === 2) {
+        if (stateHistoryItem.length === 2) {
             let rightNumberArr = document.querySelectorAll('.finally')
             rightNumberArr = [...rightNumberArr]
 
-            if (choiceArray[0] === choiceArray[1]) {
+            if (stateHistoryItem[0] === stateHistoryItem[1]) {
                 rightNumberArr.map((item) => {
                     return item.classList.add('right')
                 })
                 
-                choiceArray = []
+                dispatch(newHistoryItem([]))
                   
             } else {
                 console.log('неправильно')
                 rightNumberArr.map((item) => {
                     return item.classList.remove('finally')
                 })
-                choiceArray = []
+                dispatch(newHistoryItem([]))
             }
         }
         
@@ -63,7 +57,7 @@ const FieldGame = ({value}) => {
     return (
         <>
             {numberState.map((el, i) => 
-                <ClickPlace el={el} key={i} clickHistory={clickHistory}/>    
+                <ClickPlace el={el} key={i} newHistoryNumber={newHistoryNumber}/>    
             )}
         </>
     );
