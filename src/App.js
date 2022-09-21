@@ -17,7 +17,7 @@ function App() {
   const newGameNumbers = () => {
     document.querySelector("#reset").classList.remove('active')
 
-    let arrRightNum = document.querySelectorAll('.right')
+    let arrRightNum = document.querySelectorAll(".right");
         if (arrRightNum.length >= 12) {
           let resetArr = [...arrRightNum];
           resetArr.forEach((item) => {
@@ -39,6 +39,9 @@ function App() {
     dispatch(writeNewNumbers(setNumber));
   }
 
+  const stateCounterRightItem = useSelector(state => state.setRightAnswers.counterRightAnswers);
+  console.log(stateCounterRightItem)
+
   return (  
     <div className="App">
       <h1>Memory-game</h1>
@@ -46,10 +49,10 @@ function App() {
 
       <div className='game'>
         <div className='game__wrapper'>
-          <FieldGame stateGameNumber = {stateGameNumber} newGameNumbers={newGameNumbers}/>
+          <FieldGame stateGameNumber = {stateGameNumber}/>
         </div>
         <ResetButton newGameNumbers={newGameNumbers}/>
-        <CounterRightAnswers/>
+        <CounterRightAnswers stateCounterRightItem={stateCounterRightItem}/>
         <CounterWrongAnswers/>
       </div>
     </div>
