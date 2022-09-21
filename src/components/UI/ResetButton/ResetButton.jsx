@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './ResetButton.module.scss'
 
-const ResetButton = ({counterClick}) => {
+const ResetButton = ({newGameNumbers}) => {
     return (
-      <button id="reset" onClick={counterClick} className={style.game__button}>
+      <button id="reset" onClick={newGameNumbers} className={style.game__button}>
         Играть снова?
       </button>
     );
