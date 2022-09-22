@@ -7,6 +7,8 @@ import CounterWrongAnswers from "./components/UI/CounterWrongAnswers/CounterWron
 import ResetButton from "./components/UI/ResetButton/ResetButton";
 
 
+import { setCounterRightAnswers } from "./store/reducers/rightAnswersCounter/rightAnswersCounter";
+import { setCounterWrongAnswers } from "./store/reducers/wrongAnswersCounter/wrongAnswersCounter";
 import { useDispatch, useSelector } from 'react-redux';
 import { writeNewNumbers } from "./store/reducers/gameNumbers/gameNumbers";
 
@@ -15,6 +17,8 @@ function App() {
   const dispatch = useDispatch()
 
   const newGameNumbers = () => {
+    dispatch(setCounterRightAnswers(0))
+    dispatch(setCounterWrongAnswers(0));
     document.querySelector("#reset").classList.remove('active')
 
     let arrRightNum = document.querySelectorAll(".right");
@@ -40,7 +44,7 @@ function App() {
   }
 
   const stateCounterRightItem = useSelector(state => state.setRightAnswers.counterRightAnswers);
-  console.log(stateCounterRightItem)
+  const stateCounterWrongItem = useSelector(state => state.setWrongAnswers.counterWrongAnswers);
 
   return (  
     <div className="App">
@@ -53,7 +57,7 @@ function App() {
         </div>
         <ResetButton newGameNumbers={newGameNumbers}/>
         <CounterRightAnswers stateCounterRightItem={stateCounterRightItem}/>
-        <CounterWrongAnswers/>
+        <CounterWrongAnswers stateCounterWrongItem={stateCounterWrongItem}/>
       </div>
     </div>
   );

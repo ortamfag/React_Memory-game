@@ -4,6 +4,7 @@ import ClickPlace from '../UI/ClickPlace/ClickPlace';
 import { useDispatch, useSelector } from 'react-redux';
 import { newHistoryItem } from '../../action/newHistoryItem';
 import { setCounterRightAnswers } from '../../store/reducers/rightAnswersCounter/rightAnswersCounter';
+import { setCounterWrongAnswers } from '../../store/reducers/wrongAnswersCounter/wrongAnswersCounter';
 
 const FieldGame = ({stateGameNumber}) => {
     const stateHistoryItem = useSelector(state => state.setHistory.historyNumberArr);
@@ -15,7 +16,7 @@ const FieldGame = ({stateGameNumber}) => {
     }
 
     const [rightCounter, setRightCounter] = useState(1)
-    // const [wrongCounter, setWrongCounter] = useState(1)
+    const [wrongCounter, setWrongCounter] = useState(1)
 
     useEffect(() => {
         if (stateHistoryItem.length === 2) {
@@ -32,11 +33,12 @@ const FieldGame = ({stateGameNumber}) => {
                 dispatch(newHistoryItem([]))
                   
             } else {
+                setWrongCounter(wrongCounter + 1)
                 console.log('неправильно')
                 rightNumberArr.map((item) => {
                     return item.classList.remove('finally')
                 })
-                dispatch(setCounterRightAnswers(0))
+                dispatch(setCounterWrongAnswers(wrongCounter))
                 dispatch(newHistoryItem([]))
             }
         }
