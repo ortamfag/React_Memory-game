@@ -4,7 +4,7 @@ const defaultState = {
 
 const SET_GAME_NUMBERS = 'SET_GAME_NUMBERS';
 
-export const setNumbers = (state = defaultState, action) => {
+export const setNewGameNumbers = (state = defaultState, action) => {
     switch (action.type) {
         case SET_GAME_NUMBERS: 
             return {...state, gameNumbers: action.payload};
@@ -14,4 +14,4 @@ export const setNumbers = (state = defaultState, action) => {
     }
 }
 
-export const writeNewNumbers = (payload) => ({type: SET_GAME_NUMBERS, payload})
+export const writeNewGameNumbers = (payload) => ({type: SET_GAME_NUMBERS, payload})

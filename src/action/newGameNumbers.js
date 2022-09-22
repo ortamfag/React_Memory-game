@@ -1,7 +1,7 @@
-import { writeNewNumbers } from "../store/reducers/gameNumbers/gameNumbers"
+import { writeNewGameNumbers } from "../store/reducers/gameNumbers/gameNumbers"
 
-export const newNumbersItem = (newNumber) => {
+export const newGameNumbersItem = (newNumber) => {
     return dispatch => {
-        dispatch(writeNewNumbers(newNumber))
+        dispatch(writeNewGameNumbers(newNumber))
     }
 }

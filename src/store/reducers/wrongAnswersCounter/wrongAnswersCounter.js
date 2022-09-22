@@ -4,7 +4,7 @@ const defaultState = {
 
 const SET_WRONG_ANSWERS = 'SET_WRONG_ANSWERS';
 
-export const setWrongAnswers = (state = defaultState, action) => {
+export const setNewWrongCount = (state = defaultState, action) => {
     switch (action.type) {
         case SET_WRONG_ANSWERS: 
             return {...state, counterWrongAnswers: action.payload};

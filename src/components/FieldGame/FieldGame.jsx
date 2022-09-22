@@ -7,7 +7,7 @@ import { setCounterRightAnswers } from '../../store/reducers/rightAnswersCounter
 import { setCounterWrongAnswers } from '../../store/reducers/wrongAnswersCounter/wrongAnswersCounter';
 
 const FieldGame = ({stateGameNumber}) => {
-    const stateHistoryItem = useSelector(state => state.setHistory.historyNumberArr);
+    const stateHistoryItem = useSelector(state => state.setNewHistoryItem.historyNumberArr);
     const dispatch = useDispatch()
 
     const newHistoryNumber = (click) => {

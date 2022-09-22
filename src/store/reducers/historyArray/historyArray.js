@@ -4,7 +4,7 @@ const defaultState = {
 
 const SET_HISTORY_CLICK = 'SET_HISTORY_CLICK';
 
-export const setHistory = (state = defaultState, action) => {
+export const setNewHistoryItem = (state = defaultState, action) => {
     switch (action.type) {
         case SET_HISTORY_CLICK: 
             return {...state, historyNumberArr: action.payload};
