@@ -1,5 +1,17 @@
 .game__button{
-    margin-top: 20px;
     display: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 15px;
+    border: 1px solid #000000;
     // display: block;
+}
+
+.game__button:hover{
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    transition: 0.3s
 }

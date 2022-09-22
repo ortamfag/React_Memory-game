@@ -56,8 +56,11 @@ function App() {
           <FieldGame stateGameNumber = {stateGameNumber}/>
         </div>
         <ResetButton newGameNumbers={newGameNumbers}/>
-        <CounterRightAnswers stateCounterRightItem={stateCounterRightItem}/>
-        <CounterWrongAnswers stateCounterWrongItem={stateCounterWrongItem}/>
+        <div className="counters">
+          <CounterRightAnswers stateCounterRightItem={stateCounterRightItem}/>
+          <CounterWrongAnswers stateCounterWrongItem={stateCounterWrongItem}/>
+        </div>
+
       </div>
     </div>
   );

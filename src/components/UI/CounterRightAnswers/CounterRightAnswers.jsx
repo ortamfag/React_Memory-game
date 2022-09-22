@@ -5,7 +5,8 @@ const CounterRightAnswers = ({stateCounterRightItem}) => {
 
     return (
         <div>
-            <p className='counter__text'>Число правильных ответов: {stateCounterRightItem}</p>
+            <p className='counter__text'>Число правильных ответов</p>
+            <p className='counter__text-item'>{stateCounterRightItem}</p>
         </div>
     );
 };

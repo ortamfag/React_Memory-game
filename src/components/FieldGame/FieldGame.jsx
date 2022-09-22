@@ -35,9 +35,12 @@ const FieldGame = ({stateGameNumber}) => {
             } else {
                 setWrongCounter(wrongCounter + 1)
                 console.log('неправильно')
-                rightNumberArr.map((item) => {
-                    return item.classList.remove('finally')
-                })
+                setTimeout(() => {
+                    rightNumberArr.map((item) => {
+                        return item.classList.remove('finally')
+                    })
+                }, 1000)
+
                 dispatch(setCounterWrongAnswers(wrongCounter))
                 dispatch(newHistoryItem([]))
             }

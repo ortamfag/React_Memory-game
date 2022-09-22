@@ -1,6 +1,22 @@
+@font-face {
+    font-family: 'MontserratBold';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/MontserratBold.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: 'MontserratRegular';
+    font-style: normal;
+    font-weight: 400 ;
+    src: url('../fonts/MontserratRegular.woff2') format('woff2')
+}
+
 h1 {
     text-align: center;
     user-select: none;
+    font-family: 'MontserratBold';
+    font-size: 40px;
 }
 
 .game{
@@ -19,15 +35,25 @@ h1 {
     grid-template-columns: 25% 25% 25% 25%;
     width: 65%;
     position: relative;
+    margin-bottom: 20px;
+}
+
+
+.counters{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
 }
 
 .finally {
     pointer-events: none;
-    background-color: yellow !important
+    background-color: yellow !important;
+    color: #000000 !important
 }
 
 .right{
-    background-color: green !important
+    background-color: green !important;
+    color: #000000 !important
 }
 
 .active{
