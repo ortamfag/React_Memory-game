@@ -6,28 +6,30 @@ import { newHistoryItem } from '../../action/newHistoryItem';
 import { setCounterRightAnswers } from '../../store/reducers/rightAnswersCounter/rightAnswersCounter';
 import { setCounterWrongAnswers } from '../../store/reducers/wrongAnswersCounter/wrongAnswersCounter';
 
-const FieldGame = ({stateGameNumber}) => {
+const FieldGame = ({stateGameNumber, arrRightNum, setArrRightNum}) => {
     const stateHistoryItem = useSelector(state => state.setNewHistoryItem.historyNumberArr);
     const dispatch = useDispatch()
 
     const newHistoryNumber = (click) => {
         click.currentTarget.classList.toggle('finally')
-        dispatch(newHistoryItem([...stateHistoryItem, click.currentTarget.innerHTML]))
-    }
+        arrRightNum.push(click.currentTarget)
+        dispatch(newHistoryItem([...stateHistoryItem, click.currentTarget]))
+    }  
 
     const [rightCounter, setRightCounter] = useState(1)
     const [wrongCounter, setWrongCounter] = useState(1)
 
     useEffect(() => {
         if (stateHistoryItem.length === 2) {
-            let rightNumberArr = document.querySelectorAll('.finally')
+            let rightNumberArr = [...stateHistoryItem]
             rightNumberArr = [...rightNumberArr]
-
-            if (stateHistoryItem[0] === stateHistoryItem[1]) {
+            if (rightNumberArr[0].innerHTML === rightNumberArr[1].innerHTML) {
                 setRightCounter(rightCounter + 1)
                 rightNumberArr.map((item) => {
                     return item.classList.add('right')
                 })
+                arrRightNum = [...arrRightNum]
+                setArrRightNum(arrRightNum)
 
                 dispatch(setCounterRightAnswers(rightCounter))
                 dispatch(newHistoryItem([]))
