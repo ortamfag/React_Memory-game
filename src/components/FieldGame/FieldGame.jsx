@@ -6,7 +6,7 @@ import { newHistoryItem } from '../../action/newHistoryItem';
 import { setCounterRightAnswers } from '../../store/reducers/rightAnswersCounter/rightAnswersCounter';
 import { setCounterWrongAnswers } from '../../store/reducers/wrongAnswersCounter/wrongAnswersCounter';
 
-const FieldGame = ({stateGameNumber, arrRightNum, setArrRightNum}) => {
+const FieldGame = ({stateGameNumber, arrRightNum, setArrRightNum, resetButton}) => {
     const stateHistoryItem = useSelector(state => state.setNewHistoryItem.historyNumberArr);
     const dispatch = useDispatch()
 
@@ -21,14 +21,11 @@ const FieldGame = ({stateGameNumber, arrRightNum, setArrRightNum}) => {
 
     useEffect(() => {
         if (stateHistoryItem.length === 2) {
-            let rightNumberArr = [...stateHistoryItem]
-            rightNumberArr = [...rightNumberArr]
-            if (rightNumberArr[0].innerHTML === rightNumberArr[1].innerHTML) {
+            if (stateHistoryItem[0].innerHTML === stateHistoryItem[1].innerHTML) {
                 setRightCounter(rightCounter + 1)
-                rightNumberArr.map((item) => {
+                stateHistoryItem.map((item) => {
                     return item.classList.add('right')
                 })
-                arrRightNum = [...arrRightNum]
                 setArrRightNum(arrRightNum)
 
                 dispatch(setCounterRightAnswers(rightCounter))
@@ -38,18 +35,14 @@ const FieldGame = ({stateGameNumber, arrRightNum, setArrRightNum}) => {
                 setWrongCounter(wrongCounter + 1)
                 console.log('неправильно')
                 setTimeout(() => {
-                    rightNumberArr.map((item) => {
+                    stateHistoryItem.map((item) => {
                         return item.classList.remove('finally')
                     })
                 }, 1000)
-
+                arrRightNum.splice(arrRightNum.length - 2, 2)
                 dispatch(setCounterWrongAnswers(wrongCounter))
                 dispatch(newHistoryItem([]))
             }
-        }
-        
-        if (document.querySelectorAll('.right').length === 12) {
-            document.querySelector("#reset").classList.add('active')
         }
     })
     

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import "./assets/style/style.scss";
 
@@ -18,17 +18,24 @@ function App() {
     const resetButton = useRef(null);
     const [arrRightNum, setArrRightNum] = useState([])
 
+    useEffect(() => {
+        if (arrRightNum.length === 12) {
+            resetButton.current.classList.add('active')
+        }
+    })
+
     const newGameNumbers = () => {
         dispatch(setCounterRightAnswers(0))
         dispatch(setCounterWrongAnswers(0));
+        setArrRightNum([]) 
+
         resetButton.current.classList.remove('active')
-        console.log(arrRightNum.length)
-            if (arrRightNum.length >= 12) {
-                let resetArr = [...arrRightNum];
-                resetArr.forEach((item) => {
-                    item.classList.remove("right", "finally");
-                });
-            }
+        if (arrRightNum.length >= 12) {
+            let resetArr = [...arrRightNum];
+            resetArr.forEach((item) => {
+                item.classList.remove("right", "finally");
+            });
+        }
 
         let numberArr = new Set()
         const matrixLength = 12
@@ -49,7 +56,7 @@ function App() {
             <h1>Memory-game</h1>
             <div className='game'>
                 <div className='game__wrapper'>
-                    <FieldGame stateGameNumber = {stateGameNumber} arrRightNum = {arrRightNum} setArrRightNum = {setArrRightNum}/>
+                    <FieldGame stateGameNumber = {stateGameNumber} arrRightNum = {arrRightNum} setArrRightNum = {setArrRightNum} resetButton = {resetButton}/>
                 </div>
 
                 <button id="reset" ref={resetButton} onClick={newGameNumbers} className='game__button'>
